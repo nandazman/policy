@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — Silentry</title>
+  <meta name="description" content="Privacy policy for Silentry, an offline Android call blocker. No data collected, no internet permission.">
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2rem 1.2rem 4rem;
+      color: #1a1a1a;
+      background: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { color: #e6e6e6; background: #16181c; }
+      th { background: #23262c !important; }
+      td, th { border-color: #333 !important; }
+      a { color: #6fb3ff; }
+      code { background: #23262c; }
+    }
+    h1 { font-size: 1.9rem; margin-bottom: .2rem; }
+    h2 { margin-top: 2rem; border-bottom: 1px solid #ddd; padding-bottom: .3rem; }
+    .meta { color: #666; font-size: .95rem; margin-top: 0; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border: 1px solid #ddd; padding: .55rem .7rem; text-align: left; vertical-align: top; }
+    th { background: #f4f6f8; }
+    code { background: #f0f2f4; padding: .1rem .35rem; border-radius: 4px; font-size: .92em; }
+    footer { margin-top: 3rem; font-size: .9rem; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy — Silentry</h1>
+  <p class="meta">
+    <strong>Effective date:</strong> 2026-06-21<br>
+    <strong>App:</strong> Silentry (package <code>com.silentry.app</code>)<br>
+    <strong>Developer contact:</strong> <a href="mailto:nandazmann@gmail.com">nandazmann@gmail.com</a>
+  </p>
+
+  <h2>Summary</h2>
+  <p>
+    Silentry is an offline call blocker. It does <strong>not</strong> collect, transmit, sell, or
+    share any personal data. The app does not even hold the Android <code>INTERNET</code> permission,
+    so it is technically incapable of sending your information anywhere. Everything happens on your device.
+  </p>
+
+  <h2>Data we collect</h2>
+  <p>
+    <strong>None.</strong> We do not collect or transmit any personal or device data. There are no
+    analytics, no advertising SDKs, no crash reporting, and no servers operated by us.
+  </p>
+
+  <h2>Data processed on your device (and never sent anywhere)</h2>
+  <p>To screen incoming calls, the app processes the following <strong>locally on your device only</strong>:</p>
+  <table>
+    <thead>
+      <tr><th>Data</th><th>Why</th><th>Leaves device?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Incoming phone number</td><td>To check it against your allow-list / block-list</td><td>No</td></tr>
+      <tr><td>Caller display name</td><td>To read carrier spam flags (e.g. "Spam", "Potential")</td><td>No</td></tr>
+      <tr><td>Your Contacts</td><td>So people you know are never blocked</td><td>No — read on-device, never copied or uploaded</td></tr>
+      <tr><td>Block-list / allow-list / blocked-call history</td><td>Stored in a local database you control</td><td>No</td></tr>
+    </tbody>
+  </table>
+  <p>
+    All of this is stored in a private SQLite database inside the app's sandbox and is removed when
+    you uninstall the app.
+  </p>
+
+  <h2>Permissions</h2>
+  <ul>
+    <li><strong>Read Contacts (<code>READ_CONTACTS</code>)</strong> — to allow calls from people in your
+      address book. Contacts are read on-device for matching only and are never stored or transmitted by Silentry.</li>
+    <li><strong>Notifications (<code>POST_NOTIFICATIONS</code>)</strong> — to notify you when a spam call was blocked.</li>
+    <li><strong>Ignore Battery Optimizations (<code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code>)</strong> —
+      so the system does not stop call screening in the background.</li>
+    <li><strong>Call Screening Role (<code>ROLE_CALL_SCREENING</code>)</strong> — the Android role required
+      to screen and reject calls.</li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>
+    Silentry is suitable for all ages and does not collect data from anyone, including children under 13.
+  </p>
+
+  <h2>Changes</h2>
+  <p>
+    If this policy changes, the updated version will ship with a new app release and the effective date
+    above will change.
+  </p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy? Email <a href="mailto:nandazmann@gmail.com">nandazmann@gmail.com</a>.</p>
+
+  <footer>© 2026 Silentry. This page is the canonical privacy policy referenced by the Google Play listing.</footer>
+</body>
+</html>
