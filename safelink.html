@@ -98,9 +98,13 @@
       <strong>Downloading the blocklist.</strong> Premium refreshes the blocklist about once a day by
       <em>downloading</em> a signed file over HTTPS. It is a plain download: the request carries no
       account, no identifier and nothing about you or the links you have tapped. The hosting provider
-      (Cloudflare R2) necessarily sees your IP address as it would for any file download; we do not
-      receive or keep server logs of these requests. The file's Ed25519 signature is checked against a
-      key built into the app before it is used.
+      (Cloudflare R2) necessarily sees your IP address, as it would for any file download, and may
+      keep its own request logs under
+      <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's privacy policy</a>. We do not
+      use those requests to identify you, to build a profile, or to work out anything about your
+      browsing — and because the request says nothing beyond "send me the current blocklist", there
+      is nothing in it to work that out from. The file's Ed25519 signature is checked against a key
+      built into the app before it is used.
     </li>
     <li>
       <strong>Checking whether an <code>https</code> link secretly drops to <code>http</code>.</strong>
