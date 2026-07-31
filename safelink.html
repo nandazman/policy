@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy — SafeLink Shield</title>
+  <meta name="description" content="Privacy policy for SafeLink Shield, an Android link filter. Links are checked on your device; nothing is uploaded, and the VPN never leaves your phone.">
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2rem 1.2rem 4rem;
+      color: #1a1a1a;
+      background: #ffffff;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { color: #e6e6e6; background: #16181c; }
+      th { background: #23262c !important; }
+      td, th { border-color: #333 !important; }
+      a { color: #6fb3ff; }
+      code { background: #23262c; }
+    }
+    h1 { font-size: 1.9rem; margin-bottom: .2rem; }
+    h2 { margin-top: 2rem; border-bottom: 1px solid #ddd; padding-bottom: .3rem; }
+    .meta { color: #666; font-size: .95rem; margin-top: 0; }
+    table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+    th, td { border: 1px solid #ddd; padding: .55rem .7rem; text-align: left; vertical-align: top; }
+    th { background: #f4f6f8; }
+    code { background: #f0f2f4; padding: .1rem .35rem; border-radius: 4px; font-size: .92em; }
+    footer { margin-top: 3rem; font-size: .9rem; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>Privacy Policy — SafeLink Shield</h1>
+  <p class="meta">
+    <strong>Effective date:</strong> 2026-07-31<br>
+    <strong>App:</strong> SafeLink Shield (package <code>com.safelink.safelink_shield</code>, Android only)<br>
+    <strong>Developer contact:</strong> <a href="mailto:nandafazman@gmail.com">nandafazman@gmail.com</a>
+  </p>
+
+  <h2>Summary</h2>
+  <p>
+    SafeLink Shield checks links before they open. When you tap a link, the app looks it over and then
+    hands the safe ones to the browser you already use. The check happens <strong>on your device</strong>,
+    against a blocklist stored <strong>on your device</strong>. There is no account, no login, and no
+    server of ours that receives the links you tap. We collect nothing, there are no ads, and there is no
+    analytics or crash-reporting SDK in the app.
+  </p>
+
+  <h2>Data we collect</h2>
+  <p>
+    <strong>None.</strong> We operate no server that receives your data and we receive nothing from the
+    app — no links, no browsing history, no device identifiers, no diagnostics.
+  </p>
+
+  <h2>Data processed on your device (and never sent to us)</h2>
+  <table>
+    <thead>
+      <tr><th>Data</th><th>Why</th><th>Sent to us?</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>The web address of a link you tap</td><td>To check it against the on-device blocklist and your own rules</td><td>No</td></tr>
+      <tr><td>Recent link checks — address, verdict, time (most recent 50)</td><td>So the app can show you your history and the counters on the dashboard</td><td>No</td></tr>
+      <tr><td>Domain names looked up while the Premium shield is on</td><td>To sinkhole known-bad domains before they resolve</td><td>No</td></tr>
+      <tr><td>Your own block rules and app settings</td><td>To keep the app the way you set it</td><td>No</td></tr>
+    </tbody>
+  </table>
+  <p>
+    All of this is held in the app's private storage inside its own Android sandbox. It is removed when
+    you uninstall the app. There is no copy anywhere else.
+  </p>
+
+  <h2>The Premium VPN is local — your traffic is not routed through us</h2>
+  <p>
+    Premium's whole-device protection uses Android's <code>VpnService</code>. We want to be very clear
+    about what that does and does not mean, because "VPN" usually implies a remote server.
+  </p>
+  <p>
+    SafeLink Shield's VPN is a <strong>local DNS sinkhole</strong>. It creates a loopback tunnel on your
+    phone and routes a single virtual DNS address into it — <strong>not</strong> your web traffic. Every
+    packet it sees is a DNS lookup. If the domain is on the blocklist, the app answers the lookup itself
+    with <code>0.0.0.0</code>, so the connection is never made. If it is not, the lookup is passed
+    through to your device's usual DNS resolver so the site loads normally (see below).
+  </p>
+  <p>
+    We run no VPN server. Your browsing, your traffic, and the pages you visit are never proxied,
+    relayed, intercepted in content, or sent to us or to any third party by this app. The VPN exists only
+    to filter domain lookups on the device, and is used for nothing else.
+  </p>
+
+  <h2>Network activity — the complete list</h2>
+  <p>These are the only times the app touches the network. Nothing here is an upload of your data.</p>
+  <ul>
+    <li>
+      <strong>Downloading the blocklist.</strong> Premium refreshes the blocklist about once a day by
+      <em>downloading</em> a signed file over HTTPS. It is a plain download: the request carries no
+      account, no identifier and nothing about you or the links you have tapped. The hosting provider
+      (Cloudflare R2) necessarily sees your IP address as it would for any file download; we do not
+      receive or keep server logs of these requests. The file's Ed25519 signature is checked against a
+      key built into the app before it is used.
+    </li>
+    <li>
+      <strong>Checking whether an <code>https</code> link secretly drops to <code>http</code>.</strong>
+      Before handing an <code>https</code> link over, the app follows that link's redirects itself to
+      see whether it lands on an insecure address. This means the app briefly contacts
+      <strong>the site you tapped</strong> — the same site your browser was about to load anyway —
+      and nobody else. Nothing about you is added to that request, and the result is not sent anywhere.
+      You can turn this check off in the app's rules.
+    </li>
+    <li>
+      <strong>Forwarding DNS lookups while the Premium shield is on.</strong> Lookups that are not
+      blocked are forwarded to <strong>your device's own DNS resolvers</strong> — the ones your Wi-Fi or
+      mobile network already gave it — not to us. Whoever normally answers your DNS continues to do so,
+      and the shield changes <em>what</em> resolves, not <em>who</em> sees it. Only if your device offers
+      no usable resolver at all does the app fall back to
+      <a href="https://developers.google.com/speed/public-dns/privacy">Google Public DNS (8.8.8.8)</a>,
+      so that the lookup still succeeds rather than the page simply failing to load.
+    </li>
+  </ul>
+
+  <h2>Where the blocklist comes from</h2>
+  <p>
+    The blocklist is built from open, commercial-use-cleared threat feeds —
+    <a href="https://urlhaus.abuse.ch/">abuse.ch URLhaus</a> (CC0) and
+    <a href="https://phishtank.org/">PhishTank</a> — and signed before it is published. The feeds are
+    lists of bad sites. They contain nothing about you, and nothing about you is ever sent back to them.
+  </p>
+
+  <h2>Purchases (Google Play Billing)</h2>
+  <p>
+    Premium is a subscription sold through Google Play: $2.49 per month with a 7-day free trial,
+    cancellable any time in Google Play. The purchase is handled entirely by Google. We never see or
+    store your payment details — Play tells the app only whether an active subscription exists. Google's
+    handling of the transaction is covered by
+    <a href="https://policies.google.com/privacy">Google's privacy policy</a>.
+  </p>
+
+  <h2>Permissions</h2>
+  <ul>
+    <li><strong>Internet (<code>INTERNET</code>)</strong> — for the three things listed under Network
+      activity above: the blocklist download, the downgrade check on a link you tapped, and forwarding
+      DNS lookups while the shield is on.</li>
+    <li><strong>VPN (<code>BIND_VPN_SERVICE</code>, via Android's own VPN consent dialog)</strong> — to
+      run the local DNS sinkhole described above. Android will always ask you before it starts.</li>
+    <li><strong>Foreground service (<code>FOREGROUND_SERVICE</code>,
+      <code>FOREGROUND_SERVICE_SYSTEM_EXEMPTED</code>)</strong> — Android requires a long-lived VPN to
+      run in the foreground with a visible notification.</li>
+    <li><strong>Notifications (<code>POST_NOTIFICATIONS</code>)</strong> — to show that the shield is
+      running.</li>
+    <li><strong>Seeing which apps open web links</strong> — so a checked link can be handed to your real
+      browser and the browser chooser is complete. The app does <em>not</em> request permission to see
+      every app you have installed; it declares only that it looks for apps that can open
+      <code>https</code> links, which is all it ever asks Android for. That list stays on your device.</li>
+    <li><strong>Vibrate (<code>VIBRATE</code>)</strong> — a short buzz on a safe or blocked result.</li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>
+    SafeLink Shield is intended for users aged 13 and over. It is not directed at children under 13, and
+    it collects no data from anyone, of any age.
+  </p>
+
+  <h2>Data deletion</h2>
+  <p>
+    Uninstalling the app deletes everything it holds, including your check history and your rules. There
+    is no server-side copy for us to delete, because there never was one. Android's
+    <strong>Settings → Apps → SafeLink Shield → Storage → Clear data</strong> also wipes it without
+    uninstalling. Questions: email the address below.
+  </p>
+
+  <h2>Limits</h2>
+  <p>
+    No filter catches everything. SafeLink Shield reduces the risk of opening a malicious link; it does
+    not remove it. Treat unexpected links with the same care you would without it.
+  </p>
+
+  <h2>Changes</h2>
+  <p>
+    If this policy changes, the updated version will ship with a new app release and the effective date
+    above will change.
+  </p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy? Email <a href="mailto:nandafazman@gmail.com">nandafazman@gmail.com</a>.</p>
+
+  <footer>© 2026 SafeLink Shield. This page is the canonical privacy policy referenced by the Google Play listing.</footer>
+</body>
+</html>
