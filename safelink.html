@@ -36,7 +36,7 @@
 <body>
   <h1>Privacy Policy — SafeLink Shield</h1>
   <p class="meta">
-    <strong>Effective date:</strong> 2026-07-31<br>
+    <strong>Effective date:</strong> 2026-08-08<br>
     <strong>App:</strong> SafeLink Shield (package <code>com.safelink.safelink_shield</code>, Android only)<br>
     <strong>Developer contact:</strong> <a href="mailto:nandafazman@gmail.com">nandafazman@gmail.com</a>
   </p>
@@ -64,7 +64,7 @@
     <tbody>
       <tr><td>The web address of a link you tap</td><td>To check it against the on-device blocklist and your own rules</td><td>No</td></tr>
       <tr><td>Recent link checks — address, verdict, time (most recent 50)</td><td>So the app can show you your history and the counters on the dashboard</td><td>No</td></tr>
-      <tr><td>Domain names looked up while the Premium shield is on</td><td>To sinkhole known-bad domains before they resolve</td><td>No</td></tr>
+      <tr><td>Domain names looked up while the shield is on</td><td>To sinkhole known-bad domains before they resolve</td><td>No</td></tr>
       <tr><td>Your own block rules and app settings</td><td>To keep the app the way you set it</td><td>No</td></tr>
     </tbody>
   </table>
@@ -73,9 +73,9 @@
     you uninstall the app. There is no copy anywhere else.
   </p>
 
-  <h2>The Premium VPN is local — your traffic is not routed through us</h2>
+  <h2>The VPN is local — your traffic is not routed through us</h2>
   <p>
-    Premium's whole-device protection uses Android's <code>VpnService</code>. We want to be very clear
+    The app's whole-device protection uses Android's <code>VpnService</code>. We want to be very clear
     about what that does and does not mean, because "VPN" usually implies a remote server.
   </p>
   <p>
@@ -95,7 +95,7 @@
   <p>These are the only times the app touches the network. Nothing here is an upload of your data.</p>
   <ul>
     <li>
-      <strong>Downloading the blocklist.</strong> Premium refreshes the blocklist about once a day by
+      <strong>Downloading the blocklist.</strong> The app refreshes the blocklist about once a day by
       <em>downloading</em> a signed file over HTTPS. It is a plain download: the request carries no
       account, no identifier and nothing about you or the links you have tapped. The hosting provider
       (Cloudflare R2) necessarily sees your IP address, as it would for any file download, and may
@@ -115,7 +115,7 @@
       You can turn this check off in the app's rules.
     </li>
     <li>
-      <strong>Forwarding DNS lookups while the Premium shield is on.</strong> Lookups that are not
+      <strong>Forwarding DNS lookups while the shield is on.</strong> Lookups that are not
       blocked are forwarded to <strong>your device's own DNS resolvers</strong> — the ones your Wi-Fi or
       mobile network already gave it — not to us. Whoever normally answers your DNS continues to do so,
       and the shield changes <em>what</em> resolves, not <em>who</em> sees it. Only if your device offers
@@ -135,11 +135,20 @@
 
   <h2>Purchases (Google Play Billing)</h2>
   <p>
-    Premium is a subscription sold through Google Play: $2.49 per month with a 7-day free trial,
-    cancellable any time in Google Play. The purchase is handled entirely by Google. We never see or
-    store your payment details — Play tells the app only whether an active subscription exists. Google's
-    handling of the transaction is covered by
+    SafeLink Shield is unlocked by a <strong>single one-time purchase</strong> through Google Play.
+    There is no subscription, nothing renews, there is nothing to cancel, and there is no free trial.
+    The app is free to install and the purchase is made inside it.
+  </p>
+  <p>
+    The purchase is handled entirely by Google. We never see or store your payment details — Play tells
+    the app only whether the unlock has been bought on your Google account. That is also why the unlock
+    follows you to a new phone at no extra cost: it belongs to your Google account, not to the
+    installation. Google's handling of the transaction is covered by
     <a href="https://policies.google.com/privacy">Google's privacy policy</a>.
+  </p>
+  <p>
+    We do not receive your Google account name, email address or any other identifier from Play — only
+    the yes/no answer to "has this account bought the unlock?".
   </p>
 
   <h2>Permissions</h2>
